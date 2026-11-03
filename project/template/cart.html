@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>cart</title>
+</head>
+<body>
+<h2>Your Cart</h2>
+<div class="product-grid">
+    {% for product in products %}
+    <div class="card">
+        <img src="{{ product.image.url }}" alt="shoe">
+        <h3>{{ product.name }}</h3>
+        <p>₹{{ product.price }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<a href="{% url 'order' %}" class="btn">Place Order</a>
+
+{% endblock %}
+
+</body>
+</html>

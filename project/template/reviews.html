@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>reviews</title>
+</head>
+<body>
+<h1>Customer Reviews</h1>
+
+<a href="{% url 'add_review' %}" class="btn">Add Review</a>
+
+<div class="review-grid">
+
+    {% for review in reviews %}
+    <div class="review-card">
+        <img src="{{ review.image.url }}" alt="review">
+        <h3>{{ review.product_name }}</h3>
+        <p>{{ review.review_text }}</p>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
+</body>
+</html>

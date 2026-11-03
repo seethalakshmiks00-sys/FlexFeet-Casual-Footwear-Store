@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>add_reviews</title>
+</head>
+<body>
+<h1>Add Your Review</h1>
+<form method="POST" enctype="multipart/form-data" class="review-form">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Submit Review</button>
+</form>
+
+{% endblock %}
+</body>
+</html>

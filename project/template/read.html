@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    table {
+        text-align: center;
+    }
+    table th{
+        font-style:oblique;
+
+    }
+    table td a button{
+        background: blueviolet;
+    }
+    #a1 button{
+        background: darkslateblue;
+    }
+    #a2 button
+    {
+        background: darkorchid;
+    }
+
+</style>
+<table border="4" width="950px" height="650px">
+
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>View</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+
+    {% for item in profile %}
+    <tr>
+
+        <td>{{ item.name }}</td>
+        <td>{{ item.price}}</td>
+        <td>
+            {% if item.image %}
+                <img src="{{ item.image.url }}" width="100">
+            {% else %}
+                no img
+            {% endif %}
+        </td>
+
+        <td>
+            <a href="{% url 'single_product' item.id %}"><button>View</button></a>
+        </td>
+
+        <td id="a1">
+            <a href="{% url 'delete_product' item.id %}"><button>Delete</button></a>
+        </td>
+
+        <td id="a2">
+            <a href="{% url 'edit_product' item.id %}"><button>Edit</button></a>
+        </td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

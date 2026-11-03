@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>{{ profile.pk }}</h1>
+<h1>{{ profile.name }}</h1>
+<h1><img src="{{ profile.image.url}}"width="400"></h1>
+{% endblock %}
+</body>
+</html>

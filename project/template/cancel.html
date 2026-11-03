@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="cancel-box">
+    <h1>Order Cancelled</h1>
+
+    <a href="{% url 'home' %}" class="btn">Back To Home</a>
+</div>
+
+{% endblock %}
+</body>
+</html>

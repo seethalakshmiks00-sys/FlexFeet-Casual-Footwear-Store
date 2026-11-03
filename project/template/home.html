@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+<h1>Welcome To FlexFeet FootwearStore</h1>
+
+<p class="desc">
+    FlexFeet provides stylish and comfortable casual footwear for men and women.
+    Find the latest trendy shoes with affordable prices.
+</p>
+
+<div class="product-grid">
+
+    {% for product in products %}
+    <div class="card">
+        <img src="{{ product.image.url }}" alt="shoe">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <h4>₹{{ product.price }}</h4>
+
+        <a href="{% url 'cart' %}" class="btn">Add To Cart</a>
+        <a href="{% url 'order' %}" class="btn">Place Order</a>
+        <a href="{% url 'cancel' %}" class="btn cancel">Cancel Order</a>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
+</body>
+</html>

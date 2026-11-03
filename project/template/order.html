@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>order</title>
+</head>
+<body>
+<h2>Place Your Order</h2>
+<form class="order-form" action="{% url 'buy' %}">
+    <label>Footwear Size</label>
+    <select>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+    </select>
+
+    <label>Address</label>
+    <textarea required></textarea>
+
+    <label>Contact Number</label>
+    <input type="text" required>
+
+    <button type="submit">Buy</button>
+
+</form>
+
+<br>
+
+<a href="{% url 'cancel' %}" class="btn cancel">Cancel Order</a>
+
+{% endblock %}
+
+</body>
+</html>
